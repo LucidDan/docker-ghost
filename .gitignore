@@ -1,0 +1,20 @@
+# Don't check in Jetbrains files
+.idea
+# Don't check in ghost CLI settings
+.ghost-cli
+# We use .env for our env file to do local docker testing
+.env
+# These files are created as part of the build process, don't check them in.
+current
+node_modules/
+versions/
+# These get populated automatically in the build process by npm; don't add them to git.
+content/adapters/storage/
+content/adapters/scheduling/
+# This is where the sqlite database gets stored; don't add it to git.
+content/data/
+# This is where logs get put; don't add it git.
+content/logs/
+# Themes are uploaded into object storage, and pre-loaded into here when activated.
+content/themes/
+

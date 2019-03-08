@@ -1,0 +1,23 @@
+{
+  "name": "ghost-dansloan.org",
+  "description": "Ghost docker image with some customisations.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://gitlab.com/LucidDan/ghost-dansloan.org.git"
+  },
+  "bugs": "https://gitlab.com/LucidDan/ghost-dansloan.org/issues",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "ghost-google-cloud-storage-new": "github:KaySchneider/ghost-google-cloud-storage#master",
+    "ghost-storage-adapter-s3": "^2.8.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "ghost run",
+    "postinstall": "cp -rf ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3 && cp -rf ./node_modules/ghost-google-cloud-storage-new ./content/adapters/storage/gcloud"
+  }
+}

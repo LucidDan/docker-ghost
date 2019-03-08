@@ -1,0 +1,9 @@
+# This file isn't really needed but serves as good documentation.
+# Here is some files that should never ever end up in our Docker image
+.idea
+.ghost-cli
+.env
+# These are generated while building the image; don't accidentally copy them from the source directory.
+current
+node_modules/
+versions/
