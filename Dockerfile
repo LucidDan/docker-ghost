@@ -60,7 +60,7 @@ USER node
 COPY --from=builder --chown=node /home/node/ghost /home/node/ghost/
 COPY --from=builder --chown=node /home/node/.npm-global /home/node/.npm-global/
 # Copy from our repo - this is our bootstrap code that generates and validates config
-COPY --chown=node server.js /home/node/ghost/
+COPY --chown=node main.js server.js /home/node/ghost/
 
 WORKDIR /home/node/ghost/
 
