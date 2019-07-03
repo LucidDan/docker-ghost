@@ -29,6 +29,8 @@ RUN apk add --update git python make g++ su-exec \
 COPY --chown=node package.json npm-shrinkwrap.json ./
 # We can't do this until we've done ghost install
 COPY --chown=node content ./content
+COPY --chown=node utils ./utils
+COPY --chown=node tests ./tests
 # We can't do this until we've copied across the ./content directory
 RUN su-exec node npm install \
 	&& mkdir -p ./content/adapters/storage \
