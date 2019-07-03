@@ -1,0 +1,57 @@
+[
+  {
+    "from": "/r/quora/",
+    "to": "/about/",
+    "permanent": true
+  },
+  {
+    "from": "/r/stackoverflow/",
+    "to": "/about/",
+    "permanent": true
+  },
+  {
+    "from": "/r/instagram/",
+    "to": "/about/",
+    "permanent": true
+  },
+  {
+    "from": "/r/facebook/",
+    "to": "/about/",
+    "permanent": true
+  },
+{
+  "from": "/r/gitlab/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/github/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/linkedin/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/twitch/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/twitter/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/google/",
+  "to": "/about/",
+  "permanent": true
+},
+{
+  "from": "/r/reddit/",
+  "to": "/about/",
+  "permanent": true
+}
+]

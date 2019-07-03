@@ -438,6 +438,16 @@
         "assert-plus": "^1.0.0"
       }
     },
+    "ghost-digitalocean": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/ghost-digitalocean/-/ghost-digitalocean-1.0.0.tgz",
+      "integrity": "sha512-Qc4rRFCRoRrNBvIK2yXSto8bWtenBHdqKGiSfQHFTWDSZjArdXDHahlPIFjZ5blwlTNdSFEZLbjhXeniarUG5A==",
+      "requires": {
+        "aws-sdk": "^2.6.3",
+        "bluebird": "^3.4.6",
+        "ghost-storage-base": "0.0.1"
+      }
+    },
     "ghost-google-cloud-storage-new": {
       "version": "github:KaySchneider/ghost-google-cloud-storage#cd83971abbc70b09c2fb9ea26a9248453ef8b2e8",
       "from": "github:KaySchneider/ghost-google-cloud-storage#master",

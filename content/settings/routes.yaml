@@ -1,0 +1,19 @@
+routes:
+  /: home
+
+collections:
+  /posts/:
+    permalink: /posts/{slug}/
+    template: index
+    filter: tag:-[portfolio,course]
+  /portfolio/:
+    permalink: /portfolio/{slug}/
+    template: page-portfolio
+    filter: tag:portfolio
+  /courses/:
+    permalink: /courses/{slug}/
+    controller: page-courses
+    filter: tag:course
+
+taxonomies:
+  tag: /tag/{slug}/

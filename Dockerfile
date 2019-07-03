@@ -8,7 +8,7 @@ FROM node:10.15.0-alpine as builder
 # This makes npm install -g install to a known directory that we can copy across
 # (not sure why we can't just PATH to the node_modules directory?)
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV GHOST_VERSION 2.16.4
+ENV GHOST_VERSION 2.25.4
 ENV GHOST_INSTALL /home/node/ghost/
 
 WORKDIR $GHOST_INSTALL
@@ -31,6 +31,10 @@ COPY --chown=node package.json npm-shrinkwrap.json ./
 COPY --chown=node content ./content
 # We can't do this until we've copied across the ./content directory
 RUN su-exec node npm install \
+	&& mkdir -p ./content/adapters/storage \
+	&& cp -r ./node_modules/ghost-digitalocean ./content/adapters/storage/digitalocean \
+	&& cp -r ./node_modules/ghost-google-cloud-storage-new ./content/adapters/storage/gcloud \
+	&& cp -r ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3 \
 	&& rm -rf package.json npm-shrinkwrap.json
 
 # ##### END BUILDER IMAGE #####

@@ -10,6 +10,7 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
+    "ghost-digitalocean": "^1.0.0",
     "ghost-google-cloud-storage-new": "github:KaySchneider/ghost-google-cloud-storage#master",
     "ghost-storage-adapter-s3": "^2.8.0"
   },
