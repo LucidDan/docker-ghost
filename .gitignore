@@ -1,3 +1,5 @@
+# Config files
+config.*.json
 # Don't check in Jetbrains files
 .idea
 # Don't check in ghost CLI settings
