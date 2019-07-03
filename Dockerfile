@@ -20,7 +20,7 @@ WORKDIR $GHOST_INSTALL
 # Note we use su-exec here in the builder, NEVER put that in the main container for security.
 RUN apk add --update git python make g++ su-exec \
 	&& chown node "$GHOST_INSTALL" \
-	&& su-exec node npm install -g ghost-cli@latest \
+	&& su-exec node npm install -g ghost-cli@latest mocha \
 	&& su-exec node mkdir -p "$GHOST_INSTALL" \
 	&& su-exec node /home/node/.npm-global/bin/ghost install "$GHOST_VERSION" --no-prompt --no-setup --disable --no-check-mem --dir "$GHOST_INSTALL" --ip 0.0.0.0 --port 2368 --url https://localhost:2368 --db mysql --dbhost db --dbuser mysql --dbpass mysql --dbname ghost_prod --no-stack --no-start \
 	&& rm -rf "$GHOST_INSTALL/content" 
