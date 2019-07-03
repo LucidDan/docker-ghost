@@ -183,8 +183,29 @@ function generateGhostConfig() {
             break;
 
         case 'digitalocean':
-            throw new Error('Digital Ocean Spaces is not yet supported.');
-        // NEVERREACH
+            configData.storage.digitalocean = {
+                key: process.env.GHOST_STORAGE_DO_KEY,
+                secret: process.env.GHOST_STORAGE_DO_SECRET,
+                bucket: process.env.GHOST_STORAGE_DO_BUCKET,
+                region: process.env.GHOST_STORAGE_DO_REGION,
+            };
+            if (!!process.env.GHOST_STORAGE_DO_SPACEURL) {
+                configData.storage.digitalocean.spaceUrl = process.env.GHOST_STORAGE_DO_SPACEURL;
+            }
+            if (!!process.env.GHOST_STORAGE_DO_SUBFOLDER) {
+                configData.storage.digitalocean.subFolder = process.env.GHOST_STORAGE_DO_SUBFOLDER;
+            }
+            if (!!process.env.GHOST_STORAGE_DO_ENDPOINT) {
+                configData.storage.digitalocean.endpoint = process.env.GHOST_STORAGE_DO_ENDPOINT;
+            }
+
+            // Validate the storage config
+            if (!configData.storage.digitalocean.key || !configData.storage.digitalocean.secret || !configData.storage.digitalocean.bucket || !configData.storage.digitalocean.region) {
+                throw new Error('The Digital Ocean storage adapter requires valid values for GHOST_STORAGE_DO_KEY, GHOST_STORAGE_DO_SECRET, GHOST_STORAGE_DO_BUCKET, and GHOST_STORAGE_DO_REGION');
+                // NEVERREACH
+            }
+            break;
+            // NEVERREACH
 
         default:
             throw new Error(`Unknown storage adapter '${process.env.GHOST_STORAGE_ADAPTER}'`);
