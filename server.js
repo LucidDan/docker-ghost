@@ -97,7 +97,7 @@ function generateGhostConfig() {
         } else {
             // In this case we have the certificates in env variables. Not ideal but it might work.
             configData.database.connection.ssl = {
-                secureProtocol: 'TLSv1.2',
+                minVersion: 'TLSv1',
                 ca: process.env.GHOST_MYSQL_CA,
                 key: process.env.GHOST_MYSQL_KEY,
                 cert: process.env.GHOST_MYSQL_CERT
