@@ -244,22 +244,6 @@ function generateGhostConfig() {
     return configData;
 }
 
-// -------- Start main program --------
+module.exports.generateGhostConfig = generateGhostConfig;
+module.exports.makeDbConfigFromUrl = makeDbConfigFromUrl;
 
-try {
-    // Generate and write config.production.json file
-    fs.writeFileSync(
-        'config.production.json',
-        JSON.stringify(generateGhostConfig(), null, 2),
-        'utf8'
-    );
-
-    // This will launch an async process to start the express server and Ghost.
-    // It feels slightly hacky? But it seems to be fine, and I prefer it to launching a child process
-    require('./current/index.js');
-} catch (err) {
-    // Handle errors in the promise chain.
-    // Just log it and exit??
-    console.log('Encountered error starting Ghost: ' + (err ? err.toString() : '<unknown error>'));
-    process.exit(1);
-}

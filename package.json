@@ -18,7 +18,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "start": "ghost run",
+    "start": "node main.js",
     "postinstall": "cp -rf ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3 && cp -rf ./node_modules/ghost-google-cloud-storage-new ./content/adapters/storage/gcloud"
   }
 }

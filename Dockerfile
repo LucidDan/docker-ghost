@@ -62,7 +62,7 @@ COPY --chown=node server.js /home/node/ghost/
 
 WORKDIR /home/node/ghost/
 
-CMD ["node", "server.js"]
+CMD ["node", "main.js"]
 
 EXPOSE 5000
 
