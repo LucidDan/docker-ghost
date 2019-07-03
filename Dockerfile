@@ -30,7 +30,7 @@ COPY --chown=node package.json npm-shrinkwrap.json ./
 # We can't do this until we've done ghost install
 COPY --chown=node content ./content
 COPY --chown=node utils ./utils
-COPY --chown=node tests ./tests
+COPY --chown=node test ./test
 # We can't do this until we've copied across the ./content directory
 RUN su-exec node npm install \
 	&& mkdir -p ./content/adapters/storage \
