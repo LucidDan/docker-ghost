@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  ghost:
+    image: luciddan/ghost:latest
+    secrets:
+      - mysqldb-client-cert.pem
+      - mysqldb-client-key.pem
+      - mysqldb-ca.pem
+    ports:
+      - 5000:5000
+    restart: on-failure
+    networks:
+      - backend
+networks:
+  backend:
+    external: true
+    name: backend
+secrets:
+  mysqldb-client-cert.pem:
+    external: true
+    name: mysqldb-client-cert.pem
+  mysqldb-client-key.pem:
+    external: true
+    name: mysqldb-client-key.pem
+  mysqldb-ca.pem:
+    external: true
+    name: mysqldb-ca.pem
+

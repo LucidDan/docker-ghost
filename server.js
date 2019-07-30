@@ -103,6 +103,15 @@ function generateGhostConfig() {
                 cert: process.env.GHOST_MYSQL_CERT
             };
         }
+    } else {
+        if (fs.existsSync('/run/secrets/mysql-ca.pem')) {
+            configData.database.connection.ssl = {
+                minVersion: 'TLSv1',
+                ca: '/run/secrets/mysql-ca.pem',
+                key: '/run/secrets/mysql-client-key.pem',
+                cert: '/run/secrets/mysql-client-cert.pem'
+            };
+        }
     }
 
     if (!!process.env.GHOST_ADMIN_URL) {
