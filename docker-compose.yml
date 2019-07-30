@@ -3,6 +3,24 @@ version: '3.7'
 services:
   ghost:
     image: luciddan/ghost:latest
+    environment:
+      - MYSQL_DATABASE_URL
+      - GHOST_ADMIN_URL
+      - GHOST_PUBLIC_URL
+      - GHOST_LOG_LEVEL
+      - GHOST_STORAGE_ADAPTER
+      - GHOST_STORAGE_DO_KEY
+      - GHOST_STORAGE_DO_SECRET
+      - GHOST_STORAGE_DO_BUCKET
+      - GHOST_STORAGE_REGION
+      - GHOST_MAIL_FROM
+      - MAILGUN_API_KEY
+      - MAILGUN_DOMAIN
+      - MAILGUN_PUBLIC_KEY
+      - MAILGUN_SMTP_LOGIN
+      - MAILGUN_SMTP_PASSWORD
+      - MAILGUN_SMTP_SERVER
+      - MAILGUN_SMTP_PORT
     secrets:
       - mysqldb-client-cert.pem
       - mysqldb-client-key.pem
