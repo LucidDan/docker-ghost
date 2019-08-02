@@ -8,7 +8,7 @@ FROM node:10.15.0-alpine as builder
 # This makes npm install -g install to a known directory that we can copy across
 # (not sure why we can't just PATH to the node_modules directory?)
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV GHOST_VERSION 2.25.4
+ENV GHOST_VERSION 2.26.0
 ENV GHOST_INSTALL /home/node/ghost/
 
 WORKDIR $GHOST_INSTALL
