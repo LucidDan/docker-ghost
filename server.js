@@ -11,6 +11,7 @@
 // Built-in dependencies
 const fs = require('fs');
 const url = require('url');
+const path = require('path');
 
 // Third-party dependencies
 // --
@@ -104,12 +105,17 @@ function generateGhostConfig() {
             };
         }
     } else {
-        if (fs.existsSync('/run/secrets/mysql-ca.pem')) {
+        var sslPath = '/run/secrets';
+        if (!!process.env.MYSQL_SSL_PATH) {
+            sslPath = process.env.MYSQL_SSL_PATH;
+        }
+            
+        if (fs.existsSync(path.join(sslPath, 'mysql-ca.pem')) {
             configData.database.connection.ssl = {
                 minVersion: 'TLSv1',
-                ca: '/run/secrets/mysql-ca.pem',
-                key: '/run/secrets/mysql-client-key.pem',
-                cert: '/run/secrets/mysql-client-cert.pem'
+                ca: path.join(sslPath, 'mysql-ca.pem'),
+                key: path.join(sslPath, 'mysql-client-key.pem'),
+                cert: path.join(sslPath, 'mysql-client-cert.pem')
             };
         }
     }
