@@ -110,12 +110,12 @@ function generateGhostConfig() {
             sslPath = process.env.MYSQL_SSL_PATH;
         }
             
-        if (fs.existsSync(path.join(sslPath, 'mysql-ca.pem')) {
+        if (fs.existsSync(path.join(sslPath, 'mysql-ca.pem'))) {
             configData.database.connection.ssl = {
                 minVersion: 'TLSv1',
-                ca: path.join(sslPath, 'mysql-ca.pem'),
-                key: path.join(sslPath, 'mysql-client-key.pem'),
-                cert: path.join(sslPath, 'mysql-client-cert.pem')
+                ca: fs.readFileSync(path.join(sslPath, 'mysql-ca.pem')).toString(),
+                key: fs.readFileSync(path.join(sslPath, 'mysql-client-key.pem')).toString(),
+                cert: fs.readFileSync(path.join(sslPath, 'mysql-client-cert.pem')).toString()
             };
         }
     }
