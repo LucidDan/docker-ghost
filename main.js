@@ -16,11 +16,16 @@ const server = require('./server.js');
 
 try {
     // Generate and write config.production.json file
+    const configData = JSON.stringify(server.generateGhostConfig(), null, 2);
     fs.writeFileSync(
         'config.production.json',
-        JSON.stringify(server.generateGhostConfig(), null, 2),
+        configData,
         'utf8'
     );
+
+    if (process.env.DEBUG === 'true') {
+        console.log('DEBUG OUTPUT: Config dump:\n' + configData + '\n');
+    }
 
     // This will launch an async process to start the express server and Ghost.
     // It feels slightly hacky? But it seems to be fine, and I prefer it to launching a child process
