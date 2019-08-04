@@ -15,10 +15,15 @@ const server = require('./server.js');
 // -------- Start main program --------
 
 try {
+    var node_env = 'development';
+    if (!!process.env.NODE_ENV) {
+        node_env = process.env.NODE_ENV;
+    }
+    console.log('NODE_ENV=' + node_env + '\n');
     // Generate and write config.production.json file
     const configData = JSON.stringify(server.generateGhostConfig(), null, 2);
     fs.writeFileSync(
-        'config.production.json',
+        'config.' + node_env + '.json',
         configData,
         'utf8'
     );
