@@ -1,12 +1,12 @@
 {
-  "name": "ghost-dansloan.org",
-  "description": "Ghost docker image with some customisations.",
+  "name": "docker-ghost",
+  "description": "Ghost docker image with some customisations",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://gitlab.com/LucidDan/ghost-dansloan.org.git"
+    "url": "git://gitlab.com/LucidDan/docker-ghost.git"
   },
-  "bugs": "https://gitlab.com/LucidDan/ghost-dansloan.org/issues",
+  "bugs": "https://gitlab.com/LucidDan/docker-ghost/issues",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -19,6 +19,6 @@
   },
   "scripts": {
     "start": "node main.js",
-    "postinstall": "cp -rf ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3 && cp -rf ./node_modules/ghost-google-cloud-storage-new ./content/adapters/storage/gcloud"
+    "postinstall": "cp -rf ./node_modules/ghost-digitalocean ./content/adapters/storage/digitalocean && cp -rf ./node_modules/ghost-storage-adapter-s3 ./content/adapters/storage/s3 && cp -rf ./node_modules/ghost-google-cloud-storage-new ./content/adapters/storage/gcloud"
   }
 }
